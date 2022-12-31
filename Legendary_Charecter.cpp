@@ -4,20 +4,16 @@
 
 #include "Legendary_Character.h"
 
-Legendary_Character::Legendary_Character(string Signature_Weapon, const string &name, int star, const string &location,
-                                         Elements element, Weapon weapon, const string &equipped_weapon)
+Legendary_Character::Legendary_Character(const string& Signature_Weapon, const string &name, const string &location,
+                                         Elements element, Weapon weapon)
                                          :
-                        Character(name, star,location, element,weapon,equipped_weapon),
+                        Character(name,5,location, element,weapon),
                         m_Signature_Weapon(Signature_Weapon)
                                          {}
 
 Legendary_Character::Legendary_Character(Legendary_Character& source) :
-Character(source)
+Character(source),
+m_Signature_Weapon(source.m_Signature_Weapon)
 {
-
-
-
-
-
 
 }

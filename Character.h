@@ -1,21 +1,27 @@
 //
 // Created by Rony Zrihen on 28/12/2022.
 //
+#pragma once
 #include <iostream>
 #include <string>
 typedef enum {Anemo, Pyro, Cyro, Hydro, Electro, Geo, Dendro}Elements;
 typedef enum {Sword, Polearm, Catalyst, Claymore, Bow}Weapon;
+
 using namespace std;
 
 
 class Character{
 
 public:
-Character();
-Character(Character&);
-Character(const string& name,int star,const string& location,Elements element,Weapon weapon,const string& equipped_weapon);
-~Character();
+Character(){};
+Character(Character&source);
+Character(const string& name,int star,const string& location,Elements element,Weapon weapon);
+~Character(){};
 
+public:
+    void print(ostream& out);
+    virtual void print_child(ostream& out){};
+    int get_star() { return m_stars; };
 protected:
     std::string m_name;
     std::string m_location;
@@ -25,3 +31,8 @@ protected:
     int m_stars;
 
 };
+
+
+
+
+ostream& operator <<(ostream& out, Character& source);
