@@ -17,7 +17,12 @@ public:
     ~Player();
 public:
     void print_data();
+    void print_active();
     bool add_character_to_data(Character* character);
+    void change_weapon(int num,const string& name);
+    void switch_character(int num1, int num2);
+    void Evaluate();
+   
 private:
 
 std::string m_name;
